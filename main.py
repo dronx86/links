@@ -25,7 +25,7 @@ def is_bitlink(token, cuted_url):
 	url = "https://" + cuted_url
 	url_check = requests.get(url)
 	url_check.raise_for_status()
-	api = 'https://api-ssl.bitly.com/v4/bitlinks/{}'.format(cuted_url)
+	api = "https://api-ssl.bitly.com/v4/bitlinks/{}".format(cuted_url)
 	header = {"Authorization": "Bearer {}".format(token)}
 	response = requests.get(api, headers=header)
 	return response.ok
@@ -58,5 +58,3 @@ def main():
 		
 if __name__ == "__main__":
 	main()
-
-
