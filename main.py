@@ -2,6 +2,7 @@ import requests
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
+from urllib.parse import urlparse
 
 
 def shorten_link(token, url):
@@ -38,12 +39,9 @@ def main():
 	token = os.getenv("TG_TOKEN")
 
 	url = input("Введите ссылку: ")
-	if url[:8] == "https://":
-		cuted_url = url[8:]
-	elif url[:7] == "http://":
-		cuted_url = url[7:]
-	else:
-		cuted_url = url
+	parsed_url = urlparse(url)
+	cuted_url = parsed_url.netloc + parsed_url.path
+	print(cuted_url)
 
 	try:
 		if is_bitlink(token, cuted_url):
