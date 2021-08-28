@@ -38,7 +38,7 @@ def main():
 	load_dotenv(dotenv_path)
 	token = os.getenv("TG_TOKEN")
 
-	url = input("Введите ссылку: ")
+	url = input("Введитe ссылку: ")
 	parsed_url = urlparse(url)
 	cuted_url = parsed_url.netloc + parsed_url.path
 	print(cuted_url)
