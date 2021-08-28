@@ -40,8 +40,7 @@ def main():
 
     url = input("Введитe ссылку: ")
     parsed_url = urlparse(url)
-    cuted_url = parsed_url.netloc + parsed_url.path
-    print(cuted_url)
+    cuted_url = "{netloc}{path}".format(netloc=parsed_url.netloc, path=parsed_url.path)
 
     try:
         if is_bitlink(token, cuted_url):
