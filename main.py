@@ -23,7 +23,7 @@ def count_clicks(token, bitlink):
     
 
 def is_bitlink(token, cuted_url):
-    url = "https://" + cuted_url
+    url = "http://" + cuted_url
     url_check = requests.get(url)
     url_check.raise_for_status()
     api = "https://api-ssl.bitly.com/v4/bitlinks/{}".format(cuted_url)
