@@ -1,3 +1,4 @@
+import argparse
 import requests
 import os
 from os.path import join, dirname
@@ -38,7 +39,10 @@ def main():
     load_dotenv(dotenv_path)
     token = os.getenv("TG_TOKEN")
 
-    url = input("Введитe ссылку: ")
+    parser = argparse.ArgumentParser(description="Argument help")
+    parser.add_argument("url", help="Url or bitlink")
+    args = parser.parse_args()
+    url = args.url
     parsed_url = urlparse(url)
     cuted_url = "{netloc}{path}".format(netloc=parsed_url.netloc, path=parsed_url.path)
 
